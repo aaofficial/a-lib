@@ -1,0 +1,168 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-Variable-font-face.css"
+        rel="stylesheet" type="text/css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'anjoman.css' %}">
+    <script src="{% static 'anjoman.js' %}"></script>
+    <style>
+        body {
+            font-family: Vazirmatn, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .table-container {
+            margin: 20px auto;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background-color: #f9f9f9;
+        }
+
+        thead th {
+            font-weight: bold;
+            padding: 12px;
+            text-align: center;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tbody td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        tbody tr:hover {
+            background-color: #e6e6e6;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 600px) {
+            table {
+                display: block;
+            }
+
+            thead,
+            tbody,
+            th,
+            td,
+            tr {
+                /* display: block; */
+                width: 400px;
+            }
+
+            /* thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    } */
+
+            td {
+                /* Change padding to add space between rows and columns */
+                padding: 8px;
+            }
+
+            tr {
+                margin-bottom: 15px;
+            }
+
+            td:before {
+                /* Add a label to each cell to identify the column */
+                content: attr(data-label);
+                font-weight: bold;
+            }
+
+            .pos {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        body.dark-theme {
+            background-color: #242636;
+        }
+
+        /* .pos {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+        /* ... Rest of your CSS ... */
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* height: 80%; */
+            /* Adjust the height as needed */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="table-container pos">
+        <h4 style="font-family: vazirmatn; text-align: center; padding-top: 2vh; padding-bottom: 2vh;">برترین های انجمن
+        </h4>
+        <!-- <h4 style="font-family: vazirmatn; text-align: center; padding-top: 2vh; padding-bottom: 2vh;">جدول امتیازات</h4> -->
+        <table>
+            <thead>
+                <tr>
+                    <th>نام</th>
+                    <th>نام خانوادگی</th>
+                    <th>امتیاز</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for member in members %}
+                <tr>
+                    <td>{{ member.name }}</td>
+                    <td>{{ member.lname }}</td>
+                    <td>{{ member.score }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="button-container" style="padding-top: 2vh; padding-bottom: 2vh;">
+            <a href="{% url 'index' %}">
+                <button type="button" class="btn btn-secondary">back</button>
+            </a>
+        </div>
+    </div>
+    <!-- <a href="{% url 'index' %}"><button type="button" style="position: absolute; left: 45%;" class="btn btn-secondary">back</button></a> -->
+
+</body>
+
+</html>

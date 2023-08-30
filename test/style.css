@@ -1,0 +1,44 @@
+body {
+  background: linear-gradient(224deg, #4baae9 0%, #84a7c0 100%);
+}
+
+#nav {
+  border-radius: 55px;
+  background: #182e3e;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 90%;
+  height: 12%;
+  position: absolute;
+  left: 5%;
+  top: 3%;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    align-self: center;
+}
+
+.icon1 {
+  width: 29px;
+  height: 41px;
+  flex-shrink: 0;
+    padding-top: 1%;
+    flex
+  /* position: absolute;
+  margin-left: 30px;
+  margin-top: 30px;
+  margin-top: 25px;
+   */
+}
+.icon2 {
+  width: 39px;
+  height: 41px;
+  /* padding-left: 80%;
+  padding-top: 0%;
+  /* flex-shrink: 0;
+  position: relative;
+  margin-left: 550px;
+  transform: translateY(5%);   */ */
+}

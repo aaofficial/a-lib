@@ -1,0 +1,81 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataTable Example</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-Variable-font-face.css"
+        rel="stylesheet" type="text/css" />
+    <style>
+        /* استایل مدرن برای جدول */
+        #myTable {
+            border-collapse: collapse;
+            width: 100%;
+            font-family: Vazirmatn, sans-serif;
+            color: #333;
+        }
+
+        #myTable thead {
+            background-color: #f2f2f2;
+        }
+
+        #myTable th,
+        #myTable td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        #myTable th {
+            font-weight: bold;
+        }
+
+        #myTable tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        #myTable tbody tr:hover {
+            background-color: #e6e6e6;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>نام</th>
+                <th>نام خانوادگی</th>
+                <th>امتیاز</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tbody>
+            {% for member in members %}
+            <tr>
+                <td>{{ member.name }}</td>
+                <td>{{ member.lname }}</td>
+                <td>{{ member.score }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                language: {
+                    emptyTable: "اطلاعات موجود نیست" // یا متن دلخواه خود را وارد کنید
+                }
+            });
+        });    
+    </script>
+
+</body>
+
+</html> -->

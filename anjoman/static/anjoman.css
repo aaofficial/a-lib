@@ -1,0 +1,107 @@
+body {
+  font-family: Vazirmatn, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.table-container {
+  margin: 20px auto;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #f9f9f9;
+}
+
+thead th {
+  font-weight: bold;
+  padding: 12px;
+  text-align: center;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody td {
+  padding: 10px;
+  text-align: center;
+}
+
+tbody tr:hover {
+  background-color: #e6e6e6;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+  table {
+    display: block;
+  }
+
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    /* display: block; */
+    width: 400px;
+  }
+
+  /* thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    } */
+
+  td {
+    /* Change padding to add space between rows and columns */
+    padding: 8px;
+  }
+
+  tr {
+    margin-bottom: 15px;
+  }
+
+  td:before {
+    /* Add a label to each cell to identify the column */
+    content: attr(data-label);
+    font-weight: bold;
+  }
+
+  .pos {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+body.dark-theme {
+  background-color: #242636;
+}
+
+/* .pos {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+/* ... Rest of your CSS ... */
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 80%; */
+  /* Adjust the height as needed */
+}

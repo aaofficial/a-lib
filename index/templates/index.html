@@ -1,0 +1,211 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <title>دبیرستان هاتف</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Home Page" />
+  <meta name="author" content="dev by aacode" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,600,0,0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.rtl.min.css"
+    integrity="sha384-WJUUqfoMmnfkBLne5uxXj+na/c7sesSJ32gI7GfCk4zO4GthUKhSEGyvQ839BC51" crossorigin="anonymous" />
+  <link rel="stylesheet" href="{% static 'index.css' %}" />
+  {% comment %}
+  <link rel="icon" href="{% static 'login/img/fav/lock.png' %}" type="image/png" />
+  {% endcomment %}
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-Variable-font-face.css"
+    rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <style>
+    .scroll-left-container {
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .scroll-left-text {
+      display: inline-block;
+    }
+
+    .ganjoor-block-title,
+    .ganjoor-poet {
+      display: none;
+    }
+
+    .subtitle br {
+      display: none;
+    }
+
+    body {
+      font-family: vazirmatn;
+      background-color: #242636;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .login {
+      position: fixed;
+      z-index: 3;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      max-width: 400px;
+      padding: 70px 30px 44px;
+      /* border-radius: 22px;
+  background: #161616; */
+      /* From https://css.glass */
+      background: rgba(255, 255, 255, 0.01);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(15.6px);
+      -webkit-backdrop-filter: blur(15.6px);
+      border: 1px solid rgba(255, 255, 255, 0.19);
+      text-align: center;
+    }
+
+    .login-form {
+      display: grid;
+      gap: 16px;
+      place-items: center;
+      width: 100%;
+      margin: 0;
+    }
+
+    .textbox {
+      width: 100%;
+      position: relative;
+    }
+
+    /* CSS */
+    .button-23 {
+      background-color: #222222;
+      border: 1px solid #ffffff;
+      border-radius: 8px;
+      box-sizing: border-box;
+      color: #ffffff;
+      cursor: pointer;
+      display: inline-block;
+      font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+        "Helvetica Neue", sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 20px;
+      margin: 0;
+      outline: none;
+      padding: 13px 23px;
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      touch-action: manipulation;
+      transition: box-shadow 0.2s, -ms-transform 0.1s, -webkit-transform 0.1s,
+        transform 0.1s;
+      user-select: none;
+      -webkit-user-select: none;
+      width: auto;
+      animation: bounceIn;
+      /* referring directly to the animation's @keyframe declaration */
+      animation-duration: 1s;
+    }
+
+    .button-23:focus-visible {
+      box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+      transition: box-shadow 0.2s;
+    }
+
+    .button-23:active {
+      background-color: #000000;
+      border-color: #ffffff;
+      transform: scale(0.96);
+    }
+
+    .button-23:disabled {
+      border-color: #dddddd;
+      color: #000000;
+      cursor: not-allowed;
+      opacity: 1;
+    }
+
+    @media (max-width: 576px) {
+      .login {
+        width: 90%;
+        padding: 40px 20px;
+      }
+    }
+  </style>
+  <script src="{% static 'index.js' %}"></script>
+
+</head>
+
+<body>
+  <div class="login">
+    <a href="/login"> <button class="button-23" role="button">کتابخانه آنلاین</button>
+    </a>
+    <br><br>
+    <!-- <button class="button-23" role="button">مدیریت کتابخانه</button> -->
+    <!-- <br><br> -->
+
+    <a href="/anjoman"><button class="button-23" role="button">انجمن ریاضی</button></a>
+    <br><br>
+    <div class="scroll-left-container">
+      <span id="sher" class="subtitle " style="color: white;">
+        شعر روز
+      </span>
+      <br>
+      <span id="sher" class="subtitle scroll-left-text" style="color: white;">
+        <script type="text/javascript" language="JavaScript"
+          src="http://c.ganjoor.net/beyt.php">ganjoorblocktitle = '';</script>
+      </span>
+
+    </div>
+
+  </div>
+
+  <!-- <script>
+    // ایجاد انیمیشن با استفاده از Anime.js
+    const scrollLeftText = document.querySelector('.scroll-left-text');
+    let animation;
+
+    function animateScrollLeft() {
+      animation = anime({
+        targets: scrollLeftText,
+        translateX: ['100%', '-150%'], // حرکت از چپ به راست
+        loop: true, // حالت تکرار بی‌نهایت
+        direction: 'alternate', // تغییر جهت حرکت به صورت معکوس
+        duration: 5000, // مدت زمان انیمیشن (میلی‌ثانیه)
+        easing: 'linear', // نوع انیمیشن (linear به معنای حرکت یکنواخت است)
+      });
+    }
+
+    function pauseAnimation() {
+      animation.pause();
+      anime({
+        targets: scrollLeftText,
+        translateX: '200%', // برگشت به مکان اولیه
+        duration: 0, // مدت زمان صفر به معنای عملیات فوری
+      });
+    }
+
+    function resumeAnimation() {
+      animation.play();
+    }
+
+    // ایجاد رویدادهای موس برای مکث و ادامه انیمیشن
+    scrollLeftText.addEventListener('mouseenter', pauseAnimation);
+    scrollLeftText.addEventListener('mouseleave', resumeAnimation);
+
+    // شروع انیمیشن اولیه
+    animateScrollLeft();
+  </script> -->
+</body>
+
+</html>
+
+</html>
